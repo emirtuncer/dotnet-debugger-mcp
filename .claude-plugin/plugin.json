@@ -1,7 +1,20 @@
 {
   "name": "dotnet-debugger",
   "description": "Debug .NET applications directly from Claude Code using netcoredbg. Supports breakpoints, step execution, variable inspection, and expression evaluation.",
+  "version": "1.0.0",
   "author": {
     "name": "emirtuncer"
+  },
+  "homepage": "https://github.com/emirtuncer/dotnet-debugger-mcp",
+  "repository": "https://github.com/emirtuncer/dotnet-debugger-mcp",
+  "license": "MIT",
+  "mcpServers": {
+    "dotnet-debugger": {
+      "command": "dotnet",
+      "args": ["run", "--project", "${CLAUDE_PLUGIN_ROOT}/src/DotNetDebuggerMcp"],
+      "env": {
+        "NETCOREDBG_PATH": "${CLAUDE_PLUGIN_ROOT}/netcoredbg/netcoredbg"
+      }
+    }
   }
 }
