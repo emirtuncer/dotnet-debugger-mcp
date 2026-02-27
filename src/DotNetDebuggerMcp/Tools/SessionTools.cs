@@ -84,8 +84,8 @@ public class SessionTools(DebugSession session, DapClient dap)
             var attachArgs = new AttachArguments { ProcessId = pid };
             await dap.SendRequestAsync("attach", attachArgs);
 
-            // Configuration done
-            await dap.SendRequestAsync("configurationDone");
+            // Skip configurationDone for attach: netcoredbg on Windows returns 0x80070057 (E_INVALIDARG)
+            // for configurationDone after attach (see nvim-dap/netcoredbg reports). Attach doesn't need it.
 
             return $"Attached to process {pid}. Debug session running.";
         }
