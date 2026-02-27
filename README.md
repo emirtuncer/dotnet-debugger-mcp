@@ -1,13 +1,13 @@
 # .NET Debugger MCP Server
 
-An MCP server that allows Claude Code to interactively debug .NET applications using **netcoredbg** and the **Debug Adapter Protocol (DAP)**.
+An MCP server that lets you interactively debug .NET applications from **Claude Code** or **Cursor** using **netcoredbg** and the **Debug Adapter Protocol (DAP)**.
 
 [![Build](https://github.com/emirtuncer/dotnet-debugger-mcp/actions/workflows/build.yml/badge.svg)](https://github.com/emirtuncer/dotnet-debugger-mcp/actions/workflows/build.yml)
 
 ## Architecture
 
 ```
-Claude Code (MCP Client)
+Claude Code / Cursor (MCP Client)
         ↓  STDIO / JSON-RPC
 DotNetDebuggerMcp (C# MCP Server)
         ↓  TCP port 4712 / DAP
@@ -53,6 +53,37 @@ cp .mcp.json.example .mcp.json
 ```
 
 Then restart Claude Code.
+
+### Option C — Cursor
+
+You can use this MCP server in **Cursor** as well.
+
+**If you open this repo in Cursor:**  
+Run `.\setup.ps1` (Windows) or `bash setup.sh` (Linux/macOS) to install netcoredbg, then restart Cursor. The repo includes `.cursor/mcp.json`, so the server is configured automatically.
+
+**If you want the debugger available in other projects:**  
+Add the server to your global MCP config:
+
+- **Windows:** `%USERPROFILE%\.cursor\mcp.json`
+- **Linux / macOS:** `~/.cursor/mcp.json`
+
+Example (replace `C:\path\to\dotnet-debugger-mcp` with your clone path):
+
+```json
+{
+  "mcpServers": {
+    "dotnet-debugger-mcp": {
+      "command": "dotnet",
+      "args": ["run", "--project", "C:\\path\\to\\dotnet-debugger-mcp\\src\\DotNetDebuggerMcp"],
+      "env": {
+        "NETCOREDBG_PATH": "C:\\path\\to\\dotnet-debugger-mcp\\netcoredbg\\netcoredbg"
+      }
+    }
+  }
+}
+```
+
+On Linux/macOS use paths like `/home/you/dotnet-debugger-mcp/...`. Restart Cursor after changing MCP config.
 
 ### Removing the plugin
 
