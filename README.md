@@ -28,8 +28,8 @@ netcoredbg subprocess
 ### Option A — Claude Code Plugin (Recommended)
 
 ```bash
-claude plugin install github:emirtuncer/dotnet-debugger-mcp
-cd ~/.claude/plugins/dotnet-debugger   # or wherever Claude installs plugins
+claude plugin marketplace add emirtuncer/dotnet-debugger-mcp
+cd ~/.claude/plugins/marketplaces/dotnet-debugger-mcp   # or wherever Claude installs plugins
 .\setup.ps1       # Windows
 bash setup.sh     # Linux / macOS
 ```
