@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "dotnet-debugger": {
+    "dotnet-debugger-mcp": {
       "command": "dotnet",
       "args": ["run", "--project", "./src/DotNetDebuggerMcp"],
       "env": {

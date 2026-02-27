@@ -29,12 +29,13 @@ netcoredbg subprocess
 
 ```bash
 claude plugin marketplace add emirtuncer/dotnet-debugger-mcp
+claude plugin install emirtuncer/dotnet-debugger-mcp
 cd ~/.claude/plugins/marketplaces/dotnet-debugger-mcp   # or wherever Claude installs plugins
 .\setup.ps1       # Windows
 bash setup.sh     # Linux / macOS
 ```
 
-Then restart Claude Code. The `dotnet-debugger` MCP server will appear automatically.
+Then restart Claude Code. The `dotnet-debugger-mcp` MCP server will appear automatically.
 
 ### Option B — Manual Clone
 
@@ -52,6 +53,15 @@ cp .mcp.json.example .mcp.json
 ```
 
 Then restart Claude Code.
+
+### Removing the plugin
+
+If you uninstall this plugin, Claude Code does not currently remove its cached copy under `plugins/cache`. To avoid stale content on reinstall, remove the cache folder manually after uninstalling:
+
+- **Windows (PowerShell):** `Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\plugins\cache\emirtuncer\dotnet-debugger-mcp" -ErrorAction SilentlyContinue`
+- **Linux / macOS:** `rm -rf ~/.claude/plugins/cache/emirtuncer/dotnet-debugger-mcp`
+
+(See [claude-code#15369](https://github.com/anthropics/claude-code/issues/15369) for the upstream issue.)
 
 ---
 
