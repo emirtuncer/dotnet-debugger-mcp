@@ -1,0 +1,7 @@
+{
+  "name": "dotnet-debugger",
+  "description": "Debug .NET applications directly from Claude Code using netcoredbg. Supports breakpoints, step execution, variable inspection, and expression evaluation.",
+  "author": {
+    "name": "emirtuncer"
+  }
+}

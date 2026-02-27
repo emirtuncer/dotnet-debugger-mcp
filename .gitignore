@@ -1,0 +1,36 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+nuget.config
+
+# dotnet publish
+publish/
+
+# netcoredbg binaries (run setup.ps1 / setup.sh to install)
+netcoredbg/
+
+# .mcp.json uses relative paths and is committed (serves as plugin MCP config).
+# For manual installs needing absolute paths, copy .mcp.json.example instead.
+
+# Claude Code local settings
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db

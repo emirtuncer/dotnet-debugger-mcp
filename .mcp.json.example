@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "dotnet-debugger": {
+      "command": "dotnet",
+      "args": ["run", "--project", "/path/to/dotnet-debugger-mcp/src/DotNetDebuggerMcp"],
+      "env": {
+        "NETCOREDBG_PATH": "/path/to/dotnet-debugger-mcp/netcoredbg/netcoredbg"
+      }
+    }
+  }
+}
